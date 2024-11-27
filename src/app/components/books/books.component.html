@@ -1,0 +1,21 @@
+<div>
+
+  <table
+    class="m-3"
+    mat-table 
+    [dataSource]="dataSource"
+    >
+    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+      <th class="p-3" mat-header-cell mat-sort-header *matHeaderCellDef>{{ column }}</th>
+      <td class="p-3" mat-cell *matCellDef="let element"> {{element[column]}} 
+        <span *ngIf="column == 'images'">
+          <img src="" />
+        </span>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky:true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+</div>
